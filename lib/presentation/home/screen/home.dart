@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/utils/resources/assets_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -294,6 +295,34 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      floatingActionButton: FloatingActionButton(
+
+        child: Icon(Icons.home),
+        onPressed: () {
+
+      },),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        onTap: (p0) {
+          
+        },
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.verySmoothEdge,
+        leftCornerRadius: 32,
+        rightCornerRadius: 32,
+        inactiveColor: Colors.grey,
+
+        icons: [
+          Icons.logout_outlined,
+          Icons.favorite,
+          Icons.notification_add,
+          Icons.settings,
+
+
+        ], activeIndex: 0,
       ),
     );
   }

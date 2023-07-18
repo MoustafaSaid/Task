@@ -8,6 +8,9 @@ class ImageAssets {
   static const String productSingle = "$imagePath/product_single.png";
   static const String razerLogo = "$imagePath/Razer.png";
   static const String trophy = "$imagePath/trophy.png";
+  static const String facebookLogo = "$imagePath/facebooklogo.png";
+  static const String appleLogo = "$imagePath/applelogo.png";
+  static const String googleLogo = "$imagePath/googlelogo.png";
 }
 
 
