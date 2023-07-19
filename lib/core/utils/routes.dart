@@ -35,7 +35,7 @@ class RouteManager {
         page = const HomeScreen();
         break;
       case RoutesConstant.productDetails:
-        page = const ProductScreen();
+        page =  ProductScreen();
         break;
       case RoutesConstant.help:
         page = const HelpScreen();

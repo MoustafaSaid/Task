@@ -108,7 +108,7 @@ class AccountModel extends Equatable {
 class OtpRequestModel extends Equatable {
 
   String code;
-  int phone;
+  String phone;
 
   OtpRequestModel(this.code, this.phone);
 

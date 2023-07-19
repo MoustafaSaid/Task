@@ -21,8 +21,10 @@ class VerifyCubit extends Cubit<VerifyStates>{
    Future<OtpResponseModel> sendOtp( context)async{
      code=firstNumber.text+secondNumber.text+thirdNumber.text+fourthNumber.text;
     print("object");
-    otpRequestModel  =OtpRequestModel(code,int.parse(LoginCubit.get(context).phoneNumber));
-    var response = await appRepository.sendOtp( otpRequestModel: otpRequestModel!);
+    otpRequestModel  =OtpRequestModel(code,LoginCubit.get(context).phoneNumber);
+     print(firstNumber.text);
+
+     var response = await appRepository.sendOtp( otpRequestModel: otpRequestModel!);
     response.when(
       success: (data) {
         emit(SendCodeNumberSuccessState());

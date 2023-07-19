@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_projects/core/services/service_locator.dart';
 import 'package:flutter_projects/core/utils/routes.dart';
 import 'package:flutter_projects/presentation/help/screen/help.dart';
+import 'package:flutter_projects/presentation/home/controller/cubit/cubit.dart';
 import 'package:flutter_projects/presentation/home/screen/home.dart';
 import 'package:flutter_projects/presentation/login/controller/cubit/cubit.dart';
 import 'package:flutter_projects/presentation/login/screen/login.dart';
@@ -45,15 +46,22 @@ class MyApp extends StatelessWidget {
 
         builder: (BuildContext context, Widget? child) {
           return MultiBlocProvider(
-           providers: [
-             BlocProvider<ProductCubit>( create: (context) => sl<ProductCubit>(),
-          ),
-             BlocProvider<LoginCubit>( create: (context) => sl<LoginCubit>(),
-          ),    BlocProvider<VerifyCubit>( create: (context) => sl<VerifyCubit>(),
-          ),
-           ],
-            child: LoginScreen(),
-          );
+              providers: [
+
+                BlocProvider<LoginCubit>( create: (context) => sl<LoginCubit>(),
+                  // child: LoginScreen(),
+                ),    BlocProvider<VerifyCubit>( create: (context) => sl<VerifyCubit>(),
+                  // child: VerificationScreen(),
+                ),
+                BlocProvider<HomeCubit>( create: (context) => sl<HomeCubit>()..getProducts(),
+                  // child: HomeScreen(),
+                ),
+                BlocProvider<ProductCubit>( create: (context) => sl<ProductCubit>(),
+                  child:ProductScreen() ,
+                ),
+              ],
+
+              child: HomeScreen());
         },
       ),
     );

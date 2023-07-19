@@ -3,18 +3,19 @@ import 'package:dio/dio.dart';
 import 'package:flutter_projects/data/data_source/data_source.dart';
 import 'package:flutter_projects/data/repository/repository.dart';
 import 'package:flutter_projects/presentation/help/controller/cubit/cubit.dart';
+import 'package:flutter_projects/presentation/home/controller/cubit/cubit.dart';
 import 'package:flutter_projects/presentation/login/controller/cubit/cubit.dart';
 import 'package:flutter_projects/presentation/verification/controller/cubit/cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final sl=GetIt.instance;
 void initGetIt(){
-  // sl.registerFactory<LoginCubit>(() => LoginCubit(sl()));
-  //<LoginCubit>(() => LoginCubit(sl()));
-  sl.registerLazySingleton<ProductCubit>(() => ProductCubit());
+  // sl.registerFactory<ProductCubit>(() => ProductCubit());
   sl.registerLazySingleton<LoginCubit>(() => LoginCubit(sl()));
   sl.registerLazySingleton<VerifyCubit>(() => VerifyCubit(sl()));
-  // sl.registerLazySingleton<RegisterCubit>(() => RegisterCubit(sl()));
+  sl.registerLazySingleton<HomeCubit>(() => HomeCubit(sl()));
+  sl.registerLazySingleton<ProductCubit>(() => ProductCubit());
+
   sl.registerLazySingleton<DataSource>(() => DataSource(createAndSetupDio()));
   sl.registerLazySingleton<AppRepository>(() => AppRepository(sl()));
 
